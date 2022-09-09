@@ -10,8 +10,16 @@ const {logger} = require('./logger')
 //     console.log(method,url,time)
 //     next()
 // }
-app.get("/",logger,(req,res)=>{
-    res.send("Home")
+
+//middleware passed as parameter manually 
+// app.get("/",logger,(req,res)=>{
+//     res.send("Home")
+// })
+
+// app.use function to pass middleware
+app.use(logger)
+app.get("/",(req,res)=>{
+    res.send("home")
 })
 app.get("/about",logger,(req,res)=>{
     res.status(200).send("about")
