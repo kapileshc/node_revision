@@ -1,0 +1,24 @@
+  {
+  "name": "node_revision",
+  "version": "1.0.0",
+  "description": "basics of node",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kapileshc/node_revision.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kapileshc/node_revision/issues"
+  },
+  "homepage": "https://github.com/kapileshc/node_revision#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodeman": "^1.1.2"
+  }
+}
