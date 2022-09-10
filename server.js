@@ -19,7 +19,8 @@ app.use([authorize,logger])
 // app.use function to pass middleware
 app.use(logger)
 app.get("/",(req,res)=>{
-    res.send("home")
+    console.log(req.user)
+    res.send("hello "+req.user.name)
 })
 app.get("/about",logger,(req,res)=>{
     res.status(200).send("about")
