@@ -1,7 +1,7 @@
-const server = require('express')
+ const server = require('express')
 const app = server()
 const {logger} = require('./logger')
-
+const authorize = require('./authorize')
 
 // const logger = (req,res,next) =>{
 //     const method = req.method
@@ -15,7 +15,7 @@ const {logger} = require('./logger')
 // app.get("/",logger,(req,res)=>{
 //     res.send("Home")
 // })
-
+app.use([authorize,logger])
 // app.use function to pass middleware
 app.use(logger)
 app.get("/",(req,res)=>{
