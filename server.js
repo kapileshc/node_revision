@@ -2,6 +2,7 @@
 const app = server()
 const {logger} = require('./logger')
 const authorize = require('./authorize')
+const {people} = require('./data')
 
 // const logger = (req,res,next) =>{
 //     const method = req.method
@@ -15,15 +16,20 @@ const authorize = require('./authorize')
 // app.get("/",logger,(req,res)=>{
 //     res.send("Home")
 // })
-app.use([authorize,logger])
+app.use([logger])
 // app.use function to pass middleware
-app.use(logger)
+// app.use(logger)
+
 app.get("/",(req,res)=>{
     console.log(req.user)
     res.send("hello "+req.user.name)
 })
 app.get("/about",logger,(req,res)=>{
     res.status(200).send("about")
+})
+
+app.get("/api/people",(req,res)=>{
+    res.status(200).json({success:true,data:people})
 })
 
 app.get("*",(req,res)=>{
