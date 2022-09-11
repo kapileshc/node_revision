@@ -3,6 +3,7 @@ const app = server()
 const {logger} = require('./logger')
 const authorize = require('./authorize')
 const people = require('./routes/people')
+const login = require("./routes/auth")
 // const logger = (req,res,next) =>{
 //     const method = req.method
 //     const url = req.url
@@ -24,18 +25,16 @@ app.use(server.json())
 app.use([logger])
 // app.use function to pass middleware
 // app.use(logger)
+app.use("/login",login)
 app.use("/api/people",people)
+
 app.get("/",(req,res)=>{
     res.send("hello")
 })
 app.get("/about",logger,(req,res)=>{
     res.status(200).send("about")
 })
-app.post('/login',(req,res)=>{
-    const {name} = req.body
-    // console.log(req.body.name)
-    name?res.status(200).send(`welcone ${name}`):res.status(401).send(`please provide correct credentials`)
-})
+
 
 app.get("*",(req,res)=>{
     res.status(404).send("Page Not Found")
