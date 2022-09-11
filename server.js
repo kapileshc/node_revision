@@ -16,13 +16,13 @@ const {people} = require('./data')
 // app.get("/",logger,(req,res)=>{
 //     res.send("Home")
 // })
+// app.use(server.static('./static-folder'))
 app.use([logger])
 // app.use function to pass middleware
 // app.use(logger)
 
 app.get("/",(req,res)=>{
-    console.log(req.user)
-    res.send("hello "+req.user.name)
+    res.send("hello")
 })
 app.get("/about",logger,(req,res)=>{
     res.status(200).send("about")
